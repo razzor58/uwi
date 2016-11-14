@@ -18,9 +18,10 @@ from django.conf.urls import include, url
 from uwi import views
 app_name='uwi'
 urlpatterns = [
-    url(r'^uwi/', include('uwi.urls')),
+    #url(r'^uwi/', include('uwi.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^terminal_data/', views.terminal_data,name='terminal_data'),
-    url(r'^monitoring/', views.monitoring,name='monitoring'),
+    url(r'^alerts/', views.alerts,name='alerts'),
+    url(r'^info/', views.info,name='info'),
     url(r'^terminal_map/', views.terminal_map,name='terminal_map'),
 ]
