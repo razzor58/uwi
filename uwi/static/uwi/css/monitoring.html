@@ -63,26 +63,48 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="/uwi/">Сводные данные</a></li>
-            <li><a href="/info/">Найти устройство</a></li>
+            <li class="active"><a href="/uwi/">Сводные данные <span class="sr-only">(current)</span></a></li>
+            <li><a href="/terminal_data/">Найти устройство</a></li>
 	    <li><a href="/monitoring/">Метрики</a></li>
 	    <li><a href="/terminal_map/">Карта</a></li>
           </ul>
-        </div>
+         <!-- <ul class="nav nav-sidebar">
+            
+          </ul>-->
+    </div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+   <div class="dropdown">
+  	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    		Метрики
+  	</button>
 
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div class="row placeholders">
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    	    <a class="dropdown-item" href="#">SHA-1 исполняемого модуля</a>
+            <a class="dropdown-item" href="#">Версии параметров терминала</a>
+            <a class="dropdown-item" href="#">Версия ОС терминала</a>
+            <a class="dropdown-item" href="#">Версия ПО терминала</a>
+            <a class="dropdown-item" href="#">Версия апплета модуля безопасности</a>
+            <a class="dropdown-item" href="#">Действия пользователя за последние 15 минут</a>
+            <a class="dropdown-item" href="#">Информация о версии НСИ</a>
+            <a class="dropdown-item" href="#">Информация о маршруте</a>
+            <a class="dropdown-item" href="#">Информация о сеансах связи с ПЦ</a>
+            <a class="dropdown-item" href="#">Код текущего статуса SIM-модуля модема</a>
+            <a class="dropdown-item" href="#">Код транспортного предприятия</a>
+            <a class="dropdown-item" href="#">Координаты</a>
+            <a class="dropdown-item" href="#">Модель терминала</a>
+            <a class="dropdown-item" href="#">Название ПО терминала</a>
+            <a class="dropdown-item" href="#">Обслуживание карт</a>
+            <a class="dropdown-item" href="#">Серийный номер терминала</a>
+            <a class="dropdown-item" href="#">Состояние батареи</a>
+            <a class="dropdown-item" href="#">Состояние основного стоп-листа</a>
+            <a class="dropdown-item" href="#">Состояние основного стоп-листа социальных карт</a>
+            <a class="dropdown-item" href="#">Состояние реестра пополнений</a>
+            <a class="dropdown-item" href="#">Транспортное предприятие</a>
+            <a class="dropdown-item" href="#">Уровень сигнала</a> 
+  </div>
+</div>
+</div>
 
-            <form class="navbar-form navbar-left"
-                  action="/terminal_data/"
-                  method="GET">
-                <input type="text" class="form-control" placeholder="Введите номер MSAM" name="smid">
-                <button type="submit" class="btn btn-default"> Найти</button>
-
-            </form>
-
-
-          </div>
 
           <div class="table-responsive">
             <table class="table table-striped">

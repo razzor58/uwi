@@ -65,57 +65,50 @@
           <ul class="nav nav-sidebar">
             <li><a href="/uwi/">Сводные данные</a></li>
             <li><a href="/terminal_data/">Найти устройство</a></li>
-            <li><a href="/monitoring/">Метрики</a></li>
-            <li><a href="/terminal_map/">Карта</a></li>
+	    <li><a href="/monitoring/">Метрики</a></li>
+	    <li><a href="/terminal_map/">Карта</a></li>
           </ul>
-        <!--  <ul class="nav nav-sidebar">
-            <li><a href="">SHA-1 исполняемого модуля</a></li>
-            <li><a href="">Версии параметров терминала</a></li>
-            <li><a href="">Версия ОС терминала</a></li>
-            <li><a href="">Версия ПО терминала</a></li>
-            <li><a href="">Версия апплета модуля безопасности</a></li>
-            <li><a href="">Действия пользователя за последние</a></li>
-            <li><a href="">Информация о версии НСИ</a></li>
-            <li><a href="">Информация о маршруте</a></li>
-            <li><a href="">Информация о сеансах связи с ПЦ</a></li>
-            <li><a href="">Код текущего статуса SIM-модуля модема</a></li>
-            <li><a href="">Код транспортного предприятия</a></li>
-            <li><a href="">Координаты</a></li>
-            <li><a href="">Модель терминала</a></li>
-            <li><a href="">Название ПО терминала</a></li>
-            <li><a href="">Обслуживание карт</a></li>
-            <li><a href="">Серийный номер терминала</a></li>
-            <li><a href="">Состояние батареи</a></li>
-            <li><a href="">Состояние основного стоп-листа</a></li>
-            <li><a href="">Состояние основного стоп-листа социальных карт</a></li>
-            <li><a href="">Состояние реестра пополнений</a></li>
-            <li><a href="">Транспортное предприятие</a></li>
-            <li><a href="">Уровень сигнала</a></li>
-          </ul> -->
-        </div>
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>        
+         <!-- <ul class="nav nav-sidebar">
+            
+          </ul>-->
+    </div>
+</div>
+
+          <div class="table-responsive">
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>
+</div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <tr>
+              </thead>
+              <tbody>
+                {% for val in db_data %}
+
+                    <tr><td>MSAM номер</td> <td>{{val.smid}}</td></tr>
+                    <tr><td>Последнее обновление стоп-листа</td> <td>{{val.main_blacklist_update_time}}</td></tr>
+                    <tr><td>Уровень сигнала</td><td>{{val.gsm_signal_value}}</td></tr>
+                    <tr><td>Уровень батареи</td><td>{{val.battery_life}}</td></tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

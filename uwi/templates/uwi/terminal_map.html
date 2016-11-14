@@ -30,6 +30,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+    <script src="{% static 'uwi/js/placemark.js' %}" type="text/javascript"></script>
+	<style>
+        html,body,#map {
+            width: 90%; height: 90%; padding: 1; margin: 1; 
+        }
+       </style> 
+
   </head>
 
   <body>
@@ -65,16 +74,16 @@
           <ul class="nav nav-sidebar">
             <li><a href="/uwi/">Сводные данные</a></li>
             <li><a href="/terminal_data/">Найти устройство</a></li>
-            <li><a href="/monitoring/">Метрики</a></li>
-            <li><a href="/terminal_map/">Карта</a></li>
+	    <li><a href="/monitoring/">Метрики</a></li>
+	    <li><a href="/terminal_map/">Карта</a></li>
           </ul>
-        <!--  <ul class="nav nav-sidebar">
+         <!-- <ul class="nav nav-sidebar">
             <li><a href="">SHA-1 исполняемого модуля</a></li>
             <li><a href="">Версии параметров терминала</a></li>
             <li><a href="">Версия ОС терминала</a></li>
             <li><a href="">Версия ПО терминала</a></li>
             <li><a href="">Версия апплета модуля безопасности</a></li>
-            <li><a href="">Действия пользователя за последние</a></li>
+            <li><a href="">Действия пользователя за последние 15 минут</a></li>
             <li><a href="">Информация о версии НСИ</a></li>
             <li><a href="">Информация о маршруте</a></li>
             <li><a href="">Информация о сеансах связи с ПЦ</a></li>
@@ -90,36 +99,24 @@
             <li><a href="">Состояние основного стоп-листа социальных карт</a></li>
             <li><a href="">Состояние реестра пополнений</a></li>
             <li><a href="">Транспортное предприятие</a></li>
-            <li><a href="">Уровень сигнала</a></li>
-          </ul> -->
-        </div>
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>        
+            <li><a href="">Уровень сигнала</a></li> 
+          </ul>-->
+    </div>
+	<div class="col-sm-3 col-sm-offset-3 col-md-10 col-md-offset-3 main">
+          <div class="row placeholders"> 
+            <form class="navbar-form navbar-left"
+                  action="/terminal_map/"
+                  method="GET">
+                <input type="text" class="form-control" placeholder="Введите номер MSAM" name="smid">                
+               <button type="button" class="btn btn-default" onclick="addPoint(55.81, 37.81)">Найти</button>
+            </form>
+
+          </div>  
         </div>
       </div>
     </div>
-
+                  
+          <div id="map"></div>    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
